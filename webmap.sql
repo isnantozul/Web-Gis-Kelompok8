@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Apr 2020 pada 06.09
+-- Waktu pembuatan: 15 Apr 2020 pada 14.45
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.2.28
 
@@ -48,7 +48,8 @@ INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_a
 (2, 'Zulfikar Isnanto', 'fahezaisnanto@gmail.com', 'default.jpg', '$2y$10$V47qR7EgtrfTdYTZCGxmfuiuAZ/mP4gaBuJpW10iiADSNAjhobbji', 2, 0, 1586187406),
 (8, 'Muhammad Zulfikar Isnanto', 'muhammadzi@student.ce.undip.ac.id', 'WIN_20200321_23_36_06_Pro.jpg', '$2y$10$xR4noIDBnKLdwom9dy6xxO1W6fxWGrlprW1nj2gVFiZ51cdpT.qtS', 1, 1, 1586191351),
 (10, 'Fahreza Isnanto', 'muhzulisnanto@gmail.com', 'default.jpg', '$2y$10$CPoK9Mctn6FRpHGQMRwE.uJjC1PCfHhNkhDThxcGryPDBUGTGvntG', 2, 1, 1586253562),
-(11, 'Zul Member', 'zisnanto@100tahun.id', 'WIN_20200324_23_08_31_Pro.jpg', '$2y$10$wd/o234x0EQ8V0tH./Ot7OVuOFkItohvpkY8x6aP9nwC.WT.hkaRW', 2, 1, 1586262694);
+(11, 'Zul Member', 'zisnanto@100tahun.id', 'WIN_20200324_23_08_31_Pro.jpg', '$2y$10$wd/o234x0EQ8V0tH./Ot7OVuOFkItohvpkY8x6aP9nwC.WT.hkaRW', 2, 1, 1586262694),
+(12, 'Zulfikar Isanto', 'isnantozulfikar@gmail.com', 'WIN_20200321_23_36_06_Pro1.jpg', '$2y$10$UnHjcxbCnQJsEaCX4/B1qeza7sTcOjgJTezfgyiDDO7iK8zpHz3uO', 2, 1, 1586588448);
 
 -- --------------------------------------------------------
 
@@ -83,19 +84,21 @@ CREATE TABLE `user_map` (
   `location` varchar(128) NOT NULL,
   `user_send` varchar(128) NOT NULL,
   `role_id` int(11) NOT NULL,
-  `date_created` int(11) NOT NULL
+  `date_created` int(11) NOT NULL,
+  `date_updated` int(11) NOT NULL,
+  `user_edit` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `user_map`
 --
 
-INSERT INTO `user_map` (`id`, `location`, `user_send`, `role_id`, `date_created`) VALUES
-(8, 'LatLng(-6.982488, 110.425987)', 'muhammadzi@student.ce.undip.ac.id', 1, 1586252882),
-(11, 'LatLng(-6.993393, 110.387192)', 'muhammadzi@student.ce.undip.ac.id', 1, 1586253679),
-(13, 'LatLng(-7.000889, 110.39835)', 'muhammadzi@student.ce.undip.ac.id', 1, 1586263589),
-(14, 'LatLng(-6.984192, 110.4356)', 'muhammadzi@student.ce.undip.ac.id', 1, 1586264603),
-(15, 'LatLng(-7.017246, 110.430107)', 'zisnanto@100tahun.id', 2, 1586517162);
+INSERT INTO `user_map` (`id`, `location`, `user_send`, `role_id`, `date_created`, `date_updated`, `user_edit`) VALUES
+(8, 'LatLng(-6.980784, 110.522461)', 'muhammadzi@student.ce.undip.ac.id', 1, 1586952307, 1586952809, 'muhammadzi@student.ce.undip.ac.id'),
+(11, 'LatLng(-6.981636, 110.545635)', 'muhammadzi@student.ce.undip.ac.id', 1, 1586253679, 1586952825, 'muhammadzi@student.ce.undip.ac.id'),
+(13, 'LatLng(-7.000889, 110.39835)', 'muhammadzi@student.ce.undip.ac.id', 1, 1586263589, 0, ''),
+(14, 'LatLng(-6.984192, 110.4356)', 'muhammadzi@student.ce.undip.ac.id', 1, 1586264603, 0, ''),
+(16, 'LatLng(-6.990837, 110.416546)', 'isnantozulfikar@gmail.com', 2, 1586588576, 0, '');
 
 -- --------------------------------------------------------
 
@@ -186,7 +189,8 @@ INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
 (1, 'fahezaisnanto@gmail.com', '0', 1586187406),
 (8, 'muhammadzi@student.ce.undip.ac.id', 'EzuRfCRUz04soGc3YbwL6ED6/1OJ7oWxcTHJRged8W8=', 1586193074),
 (11, 'muhzulisnanto@gmail.com', 'eHbIf0plJ8NtRtCPBexkga8nhKhxy2fSCTFLFBjnohc=', 1586261184),
-(13, 'zisnanto@100tahun.id', 'OFxR+/rpHPlNgpgFOclUIjsbCB8X6tfLYpvLIqpZ97c=', 1586264837);
+(13, 'zisnanto@100tahun.id', 'OFxR+/rpHPlNgpgFOclUIjsbCB8X6tfLYpvLIqpZ97c=', 1586264837),
+(15, 'isnantozulfikar@gmail.com', '3EF0HcVu5YN6ZilNwTEqFMhgKh8PF3iD03Wzh5aFkz4=', 1586588852);
 
 --
 -- Indexes for dumped tables
@@ -242,7 +246,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_access_menu`
@@ -254,7 +258,7 @@ ALTER TABLE `user_access_menu`
 -- AUTO_INCREMENT untuk tabel `user_map`
 --
 ALTER TABLE `user_map`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_menu`
@@ -278,7 +282,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT untuk tabel `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
