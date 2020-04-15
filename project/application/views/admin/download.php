@@ -46,6 +46,8 @@
             <th>User Send</th>
             <th>User Role</th>
             <th>Date Created</th>
+            <th>Date Updated</th>
+            <th>User Edit</th>
         </tr>
         <?php $i = 1; ?>
         <?php foreach ($map as $r) : ?>
@@ -59,6 +61,12 @@
                     <td><?php echo "Member" ?></td>
                 <?php endif; ?>
                 <td><?php echo date('d F Y', $r['date_created']); ?></td>
+                <?php if ($r["date_updated"] == 0) : ?>
+                    <td></td>
+                <?php else : ?>
+                    <td><?php echo date('d F Y', $r['date_updated']); ?></td>
+                <?php endif; ?>
+                <td><?php echo $r['user_edit']; ?></td>
             </tr>
             <?php $i++; ?>
         <?php endforeach; ?>
