@@ -9,13 +9,13 @@
           <div class="row mt-3">
               <div class="col">
                   <?php echo $this->session->flashdata('message'); ?>
-                  <form action="<?= base_url("admin/map") ?>" method="POST">
+                  <form action="<?= base_url("admin/edit_map/") . $map["id"] ?>" method="POST">
                       <div class="form-group">
                           <label for="datalat">Latidude Dan Longitude</label>
-                          <input type="text" class="form-control" id="geodata" name="geo">
+                          <input type="text" class="form-control" id="geodata" name="geo" value="<?= $map["location"] ?>">
                           <?php echo form_error('geo', '<small class="text-danger pl-2">', '</small>') ?>
                       </div>
-                      <button type="submit" class="btn btn-primary">Kirim</button>
+                      <button type="submit" class="btn btn-primary">Edit</button>
                   </form>
               </div>
           </div>

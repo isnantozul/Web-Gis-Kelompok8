@@ -78,6 +78,7 @@ class Admin extends CI_Controller
 	{
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		//echo "selamat datang ".$data['user']['name'];
+		$data['map'] = $this->db->get('user_map')->result_array();
 		$data['title'] = "Map";
 
 		$this->form_validation->set_rules('geo', 'Location', 'required|trim', [
@@ -104,6 +105,41 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function edit_map($id)
+	{
+		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		//echo "selamat datang ".$data['user']['name'];
+		$data['map'] = $this->db->get_where('user_map', ['id' => $id])->row_array();
+		// var_dump($data["map"]);
+		// die;
+		$data['title'] = "Edit Map";
+
+		$this->form_validation->set_rules('geo', 'Location', 'required|trim', [
+			'required' => 'Please Select your Location First By Clicking The Map',
+		]);
+
+		if ($this->form_validation->run() == false) {
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);
+			$this->load->view('templates/topbar', $data);
+			$this->load->view('admin/map_edit', $data);
+			$this->load->view('templates/footer', $data);
+		} else {
+			$data = [
+				'location' => htmlspecialchars($this->input->post('geo', true)),
+				'role_id' => 2,
+				'user_send' => $this->session->email,
+				'role_id' => $this->session->role_id,
+				'date_updated' => time(),
+				'user_edit' => $this->session->email,
+			];
+			$this->db->where(["id" => $id]);
+			$this->db->update('user_map', $data);
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Has Been updated The Database</div>');
+			redirect('admin');
+		}
+	}
+
 	public function delete_map($id)
 	{
 		$this->db->where('id', $id);
@@ -112,6 +148,13 @@ class Admin extends CI_Controller
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Has Been Deleted.</div>');
 			redirect('admin');
 		}
+	}
+
+	public function download()
+	{
+		$data['title'] = "Download";
+		$data['map'] = $this->db->get('user_map')->result_array();
+		$this->load->view('admin/download', $data);
 	}
 }
 

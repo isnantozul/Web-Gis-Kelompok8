@@ -68,6 +68,9 @@
    });
  </script>
 
+
+ edit_map($id)
+
  </body>
 
  </html>
