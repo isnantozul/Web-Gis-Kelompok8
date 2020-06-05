@@ -10,13 +10,13 @@
 
 # Screenshot
 
-- Log-in Page
+**Log-in Page**
 ![Gambar2](https://github.com/isnantozul/Web-Gis-Kelompok8/blob/master/Screenshot/webgis1.png)
-- Dashboard
+**Dashboard**
 ![Gambar3](https://github.com/isnantozul/Web-Gis-Kelompok8/blob/master/Screenshot/webgis2.png)
-- Map
+**Map**
 ![Gambar4](https://github.com/isnantozul/Web-Gis-Kelompok8/blob/master/Screenshot/webgis3.png)
-- My Profile
+**My Profile**
 ![Gambar5](https://github.com/isnantozul/Web-Gis-Kelompok8/blob/master/Screenshot/webgis4.png)
-- Edit Map
+**Edit Map**
 ![Gambar6](https://github.com/isnantozul/Web-Gis-Kelompok8/blob/master/Screenshot/webgis5.png)
