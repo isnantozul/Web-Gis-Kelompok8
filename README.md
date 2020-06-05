@@ -1,4 +1,5 @@
 # Tugas UTS WEB-GIS-Kelompok8
+[![HitCount](http://hits.dwyl.com/isnantozul/https://githubcom/isnantozul/Web-Gis-Kelompok8.svg)](http://hits.dwyl.com/isnantozul/https://githubcom/isnantozul/Web-Gis-Kelompok8)
 
 - Muhammad Zulfikar Isnanto (21120117140011)
 - Nurhadiyatussholihah (21120117120018)
